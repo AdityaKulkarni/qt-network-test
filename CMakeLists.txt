@@ -20,18 +20,22 @@ include_directories(
     ${PROJECT_SOURCE_DIR}/client
 )
 
-set(COMMON_SOURCES server/server.cpp client/client.cpp)
-
 # Server executable
 add_executable(server
     server_main.cpp
-    ${COMMON_SOURCES}
+    server/server.hpp
+    server/server.cpp
+    payload/Message.h
+    Node.h
 )
 
 # Client executable
 add_executable(client
     client_main.cpp
-    ${COMMON_SOURCES}
+    client/client.hpp
+    client/client.cpp
+    payload/Message.h
+    Node.h
 )
 
 # Installation settings for server
